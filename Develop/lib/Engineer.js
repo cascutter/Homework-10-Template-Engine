@@ -7,8 +7,14 @@ class Engineer extends Employee {
     }
 
     // Method that returns GitHub username
-    getGithub()
+    getGithub() {
+        return this.github;
+    }
 
     // Method that overrides to return Engineer
-    getRole()
+    getRole() {
+        return "Engineer";
+    }
 }
+
+module.exports = Engineer;

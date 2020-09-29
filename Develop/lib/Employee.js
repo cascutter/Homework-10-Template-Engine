@@ -8,16 +8,24 @@ class Employee {
 
 
     // Method which returns name
-    getName() 
+    getName() {
+        return this.name;
+    }
 
     // Method which gets ID
-    getId()
+    getId() {
+        return this.id;
+    }
 
     //Method which gets email 
-    getEmail()
+    getEmail() {
+        return this.email;
+    }
 
     // Method which returns role (Employee)
-    getRole()
+    getRole() {
+        return "Employee";
+    }
 }
 
 module.exports = Employee;

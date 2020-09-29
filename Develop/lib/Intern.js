@@ -7,8 +7,14 @@ class Intern extends Employee {
     }
 
     // Method that returns School
-    getSchool()
+    getSchool() {
+        return this.school;
+    }
 
     // Method that overrides to return Intern
-    getRole()
+    getRole() {
+        return "Intern";
+    }
 }
+
+module.exports = Intern;
