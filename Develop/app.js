@@ -19,21 +19,48 @@ function createManager() {
             type: "input",
             name: "name",
             message: "What is your name?",
+            validate: answer => {
+                if(answer !== "") {
+                    return true;
+                } 
+                return "Please enter at least one character."
+            }
         },
         {
             type: "input",
             name: "id",
-            message: "What is your ID?"
+            message: "What is your ID?",
+            validate: answer => {
+                const pass = answer.match(/^[1-9]\d*$/);
+                if(pass) {
+                    return true;
+                }
+                return "Please enter numbers only."
+            }
         },
         {
             type: "input",
             name: "email",
             message: "What is your email address?", 
+            validate: answer => {
+                const pass = answer.match(/\S+@\S+\.\S+/);
+                if(pass) {
+                    return true;
+                }
+                return "Please enter a valid email adress."
+            }
         },
         {
             type: "input",
             name: "office",
             message: "What is your office number?",
+            validate: answer => {
+                const pass = answer.match(/^[1-9]\d*$/);
+                if(pass) {
+                    return true;
+                }
+                return "Please enter numbers only."
+            }
         },
     ]).then(function (answers) {
         const manager = new Manager(answers.name, answers.id, answers.email, answers.office);
@@ -61,7 +88,7 @@ function addTeamMember() {
             createIntern();
         } else {
             console.log("Your team has been created!")
-            render(teamMembers)
+            buildTeam();
         }
     })
 }
@@ -72,21 +99,50 @@ function createEngineer() {
             type: "input",
             name: "name",
             message: "What is the engineer's name?",
+            validate: answer => {
+                if(answer !== "") {
+                    return true;
+                } 
+                return "You must enter at least one character."
+            }
         },
         {
             type: "input",
             name: "id",
             message: "What is this engineer's ID?",
+            validate: answer => {
+                const pass = answer.match(/^[1-9]\d*$/);
+                if(pass) {
+                    return true;
+                }
+                return "Please enter numbers only."
+            }
         },
         {
             type: "input",
             name: "email",
             message: "What is this engineer's email address?",
+            validate: answer => {
+                const pass = answer.match(/\S+@\S+\.\S+/);
+                if(pass) {
+                    return true;
+                }
+                return "Please enter a valid email adress."
+            }
         },
         {
             type: "input",
             name: "github",
             message: "What is this engineer's GitHub?",
+            validate: answer => {
+                const pass = answer.match(
+                    /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/
+                    );
+                if(pass) {
+                    return true;
+                }
+                return "Please enter a valid URL."
+            }
         },
     ]).then(function (answers) {
         const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
@@ -101,27 +157,60 @@ function createIntern() {
             type: "input",
             name: "name",
             message: "What is the intern's name?",
+            validate: answer => {
+                if(answer !== "") {
+                    return true;
+                } 
+                return "You must enter at least one character."
+            }
         },
         {
             type: "input",
             name: "id",
             message: "What is the intern's id?",
+            validate: answer => {
+                const pass = answer.match(/^[1-9]\d*$/);
+                if(pass) {
+                    return true;
+                }
+                return "Please enter numbers only."
+            },
         },
         {
             type: "input",
             name: "email",
             message: "What is the intern's email address?",
+            validate: answer => {
+                const pass = answer.match(/\S+@\S+\.\S+/);
+                if(pass) {
+                    return true;
+                }
+                return "Please enter a valid email adress."
+            }
         },
         {
             type: "input",
-            name: "github",
+            name: "school",
             message: "What school does the intern attend?",
+            validate: answer => {
+                if(answer !== "") {
+                    return true;
+                } 
+                return "You must enter at least one character."
+            }
         },
     ]).then(function (answers) {
-        const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+        const engineer = new Intern(answers.name, answers.id, answers.email, answers.school);
         teamMembers.push(engineer);
         addTeamMember();
     })
+}
+
+function buildTeam() {
+    if(!fs.existsSync(OUTPUT_DIR)) {
+        fs.mkdirSync(OUTPUT_DIR)
+    }
+    fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
 }
 
 createManager();
