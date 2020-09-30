@@ -1,0 +1,33 @@
+body {
+    background-color: #f1f0ea;
+}
+
+.team-heading {
+    font-family: 'Russo One', sans-serif;
+    color: rgba(9, 9, 9, 0.817);
+}
+
+h1 {
+    margin-top: 3rem;
+}
+
+.jumbotron {
+    background-image: linear-gradient(#060606, #f1f0ea);
+}
+
+.card {
+    margin: 2rem;
+    box-shadow: rgb(128, 131, 133) 0px 0px 20px 5px;
+}
+
+.man-head {
+    background-color: #f93545;
+}
+
+.eng-head {
+    background-color: #fed624;
+}
+
+.int-head {
+    background-color: #0f72fe;
+}
