@@ -8,21 +8,22 @@
     <title>My Team</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/c502137733.js"></script>
+    <link rel="stylesheet" href="/Assets/style.css">
+    <link rel="stylesheet" href="/Assets/starwars-glyphicons/css/starwars-glyphicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 jumbotron mb-3 team-heading">
-                <h1 class="text-center">My Team</h1>
+                <h1 class="text-center"><i class="swg swg-lightsabers"></i>My Team<i class="swg swg-lightsabers"></i></h1>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="team-area col-12 d-flex justify-content-center">
+            <div class="team-area col-12 d-flex flex-wrap justify-content-center">
                 {{ team }}
             </div>
         </div>
