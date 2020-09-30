@@ -17,7 +17,7 @@ h1 {
 
 .card {
     margin: 2rem;
-    box-shadow: rgb(128, 131, 133) 0px 0px 20px 5px;
+    box-shadow: rgb(128, 131, 133) 5px 5px 10px 5px;
 }
 
 .man-head {
